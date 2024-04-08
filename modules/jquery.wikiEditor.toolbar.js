@@ -239,8 +239,11 @@
 						}
 						break;
 					case 'dialog':
+						const isCodeMirrorActive = mw.user.options.get('usecodemirror') > 0;
 						context.fn.saveSelection();
-						context.$textarea.wikiEditor( 'openDialog', action.module );
+						if ( !isCodeMirrorActive ) {
+							context.$textarea.wikiEditor( 'openDialog', action.module );
+						}
 						break;
 					default: break;
 				}
@@ -575,8 +578,8 @@
 							}
 						}
 					};
-				// In some cases the label for the character isn't the same as the
-				// character that gets inserted (e.g. Hebrew vowels)
+					// In some cases the label for the character isn't the same as the
+					// character that gets inserted (e.g. Hebrew vowels)
 				} else if ( character && 0 in character && 1 in character ) {
 					character = {
 						label: character[ 0 ],
