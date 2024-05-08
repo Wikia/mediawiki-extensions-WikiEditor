@@ -241,7 +241,7 @@
 					case 'dialog':
 						const isCodeMirrorActive = mw.user.options.get('usecodemirror') > 0;
 						context.fn.saveSelection();
-						if ( !isCodeMirrorActive ) {
+						if ( !isCodeMirrorActive || action.module !== 'search-and-replace' ) {
 							context.$textarea.wikiEditor( 'openDialog', action.module );
 						}
 						break;
