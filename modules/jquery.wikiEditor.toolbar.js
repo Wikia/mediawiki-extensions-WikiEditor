@@ -239,10 +239,11 @@
 						}
 						break;
 					case 'dialog':
-						const isCodeMirrorActive = mw.user.options.get('usecodemirror') > 0;
+						// @TODO change after CM6 full release
+						const cm6enabled = mw.config.get('extCodeMirrorConfig').cm6enabled;
 						context.fn.saveSelection();
-						if ( !isCodeMirrorActive || action.module !== 'search-and-replace' ) {
-							context.$textarea.wikiEditor( 'openDialog', action.module );
+						if ((!cm6enabled || action.module !== 'search-and-replace') || (cm6enabled && window.WikiEditorCodeMirror.view === null)) {
+							context.$textarea.wikiEditor('openDialog', action.module);
 						}
 						break;
 					default: break;
