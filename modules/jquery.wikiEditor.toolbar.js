@@ -239,6 +239,8 @@ var toolbarModule = {
 					}
 					break;
 				case 'dialog':
+					// @TODO change after CM6 full release
+					const cm6enabled = mw.config.get('extCodeMirrorConfig')?.cm6enabled;
 					context.fn.saveSelection();
 					context.$textarea.wikiEditor( 'openDialog', action.module );
 					break;
