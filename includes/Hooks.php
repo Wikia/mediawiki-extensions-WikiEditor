@@ -424,6 +424,7 @@ class Hooks implements
 			'img_thumbnail',
 			'img_framed',
 			'img_frameless',
+			'SQuote'
 		];
 		$magicWords = [];
 		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
