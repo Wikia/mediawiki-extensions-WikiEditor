@@ -302,7 +302,7 @@
 									module: 'insert-table'
 								}
 							},
-							squote: {
+						 	squote: {
 								labelMsg: 'wikieditor-toolbar-tool-squote',
 								type: 'button',
 								oouiIcon: 'squote',
@@ -658,6 +658,10 @@
 	// Remove the signature button on non-signature namespaces
 	if ( !mw.Title.wantSignaturesNamespace( mw.config.get( 'wgNamespaceNumber' ) ) ) {
 		delete toolbarConfig.toolbar.main.groups.insert.tools.signature;
+	}
+
+	if( !mw.config.get('wgEnableStructuredContent') ) {
+		delete toolbarConfig.toolbar.advanced.groups.insert.tools.squote;
 	}
 
 	module.exports = toolbarConfig;
