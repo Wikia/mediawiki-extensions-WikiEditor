@@ -40,6 +40,7 @@ use MediaWiki\WikiMap\WikiMap;
 use MessageLocalizer;
 use MobileContext;
 use MWCryptRand;
+use MWException;
 use RecentChange;
 use WikimediaEvents\WikimediaEventsHooks;
 
@@ -417,11 +418,18 @@ class Hooks implements
 			'img_thumbnail',
 			'img_framed',
 			'img_frameless',
+			'SQuote'
 		];
 		$magicWords = [];
 		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
 		foreach ( $requiredMagicWords as $name ) {
-			$magicWords[$name] = $factory->get( $name )->getSynonyms();
+			try {
+				$magicWords[$name] = $factory->get( $name )->getSynonyms();
+			} catch ( MWException $e ) {
+				// fallback in case the magic word is not defined or the extension registrating it is not loaded
+				$magicWords[$name][] = $name;
+			}
+
 		}
 		return $magicWords;
 	}

@@ -770,4 +770,8 @@ if ( !mw.Title.wantSignaturesNamespace( mw.config.get( 'wgNamespaceNumber' ) ) )
 	delete toolbarConfig.toolbar.main.groups.insert.tools.signature;
 }
 
-module.exports = toolbarConfig;
+if( !mw.config.get('wgEnableStructuredContent') ) {
+		delete toolbarConfig.toolbar.advanced.groups.insert.tools.squote;
+	}
+
+	module.exports = toolbarConfig;
