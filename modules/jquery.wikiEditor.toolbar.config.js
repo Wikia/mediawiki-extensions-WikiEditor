@@ -292,6 +292,29 @@
 										ownline: true
 									}
 								}
+							},
+							table: {
+								labelMsg: 'wikieditor-toolbar-tool-table',
+								type: 'button',
+								oouiIcon: 'table',
+								action: {
+									type: 'dialog',
+									module: 'insert-table'
+								}
+							},
+						 	squote: {
+								labelMsg: 'wikieditor-toolbar-tool-squote',
+								type: 'button',
+								oouiIcon: 'squote',
+								action: {
+									type: 'encapsulate',
+									options: {
+										pre: '{{#' + configData.magicWords.SQuote[ 0 ] + ':\n',
+										periMsg: 'wikieditor-toolbar-tool-squote-example',
+										post: '\n}}',
+										ownline: true
+									}
+								}
 							}
 						}
 					}
@@ -635,6 +658,10 @@
 	// Remove the signature button on non-signature namespaces
 	if ( !mw.Title.wantSignaturesNamespace( mw.config.get( 'wgNamespaceNumber' ) ) ) {
 		delete toolbarConfig.toolbar.main.groups.insert.tools.signature;
+	}
+
+	if( !mw.config.get('wgEnableStructuredContent') ) {
+		delete toolbarConfig.toolbar.advanced.groups.insert.tools.squote;
 	}
 
 	module.exports = toolbarConfig;

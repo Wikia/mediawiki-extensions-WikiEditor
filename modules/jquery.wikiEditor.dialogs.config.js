@@ -67,21 +67,6 @@
 				} )
 				.wikiEditor( 'addToToolbar', {
 					section: 'advanced',
-					group: 'insert',
-					tools: {
-						table: {
-							labelMsg: 'wikieditor-toolbar-tool-table',
-							type: 'button',
-							oouiIcon: 'table',
-							action: {
-								type: 'dialog',
-								module: 'insert-table'
-							}
-						}
-					}
-				} )
-				.wikiEditor( 'addToToolbar', {
-					section: 'advanced',
 					groups: {
 						search: {
 							tools: {
