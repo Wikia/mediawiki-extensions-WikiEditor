@@ -1,3 +1,11 @@
+const squotePeri = `|id=<${mw.msg('structured-content-squote-parserfunc-parameter-id-desc')}>
+|text=<${mw.msg('structured-content-structured-quote-doc-templatedata-parameter-text-desc')}>
+|speaker=<${mw.msg('structured-content-structured-quote-doc-templatedata-parameter-speaker-desc')}>
+|receiver=<${mw.msg('structured-content-structured-quote-doc-templatedata-parameter-receiver-desc')}>
+|attribution=<${mw.msg('structured-content-structured-quote-doc-templatedata-parameter-attribution-desc')}>
+|source=<${mw.msg('structured-content-structured-quote-doc-templatedata-parameter-source-desc')}>
+|template=<${mw.msg('structured-content-squote-parserfunc-parameter-template-desc')}>`;
+
 /**
  * Configuration of Toolbar module for wikiEditor
  *
@@ -304,6 +312,29 @@ toolbarConfig = {
 									pre: configData.magicWords.redirect[ 0 ] + ' [[',
 									peri: mw.msg( 'wikieditor-toolbar-tool-redirect-example' ),
 									post: ']]',
+									ownline: true
+								}
+							}
+						},
+						table: {
+							label: mw.msg( 'wikieditor-toolbar-tool-table' ),
+							type: 'button',
+							oouiIcon: 'table',
+							action: {
+								type: 'dialog',
+								module: 'insert-table'
+							}
+						},
+						squote: {
+							label: mw.msg( 'wikieditor-toolbar-tool-squote' ),
+							type: 'button',
+							oouiIcon: 'squote',
+							action: {
+								type: 'encapsulate',
+								options: {
+									pre: '{{#' + configData.magicWords.SQuote[ 0 ] + ':\n',
+									peri: squotePeri,
+									post: '\n}}',
 									ownline: true
 								}
 							}

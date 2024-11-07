@@ -242,7 +242,15 @@
 				"wikieditor-toolbar-file-format",
 				"wikieditor-toolbar-tool-file-insert",
 				"wikieditor-toolbar-tool-file-cancel",
-				"wikieditor-toolbar-tool-file-upload"
+				"wikieditor-toolbar-tool-file-upload",
+				"structured-content-structured-quote-title",
+				"structured-content-squote-parserfunc-parameter-id-desc",
+				"structured-content-structured-quote-doc-templatedata-parameter-text-desc",
+				"structured-content-structured-quote-doc-templatedata-parameter-speaker-desc",
+				"structured-content-structured-quote-doc-templatedata-parameter-receiver-desc",
+				"structured-content-structured-quote-doc-templatedata-parameter-attribution-desc",
+				"structured-content-structured-quote-doc-templatedata-parameter-source-desc",
+				"structured-content-squote-parserfunc-parameter-template-desc"
 			],
 			"dependencies": [
 				"mediawiki.cookie",
