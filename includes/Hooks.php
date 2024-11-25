@@ -40,8 +40,8 @@ use MediaWiki\WikiMap\WikiMap;
 use MessageLocalizer;
 use MobileContext;
 use MWCryptRand;
-use MWException;
 use RecentChange;
+use UnexpectedValueException;
 use WikimediaEvents\WikimediaEventsHooks;
 
 /**
@@ -425,7 +425,7 @@ class Hooks implements
 		foreach ( $requiredMagicWords as $name ) {
 			try {
 				$magicWords[$name] = $factory->get( $name )->getSynonyms();
-			} catch ( MWException $e ) {
+			} catch ( UnexpectedValueException $e ) {
 				// fallback in case the magic word is not defined or the extension registrating it is not loaded
 				$magicWords[$name][] = $name;
 			}

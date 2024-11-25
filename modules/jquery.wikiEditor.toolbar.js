@@ -241,9 +241,9 @@ var toolbarModule = {
 				case 'dialog':
 					// @TODO change after CM6 full release
 					const cm6enabled = mw.config.get('extCodeMirrorConfig')?.cm6enabled;
-					const isCodeMirrorActive = mw.user.options.get('usecodemirror') > 0;context.fn.saveSelection();
+					context.fn.saveSelection();
 					if ((!cm6enabled || action.module !== 'search-and-replace') || (cm6enabled && window.WikiEditorCodeMirror.view === null)) {
-						if ( !isCodeMirrorActive ) {context.$textarea.wikiEditor('openDialog', action.module);
+						context.$textarea.wikiEditor('openDialog', action.module);
 					}
 					break;
 				default: break;
