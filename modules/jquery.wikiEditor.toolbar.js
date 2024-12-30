@@ -240,9 +240,7 @@ var toolbarModule = {
 					break;
 				case 'dialog':
 					context.fn.saveSelection();
-					if (window.WikiEditorCodeMirror.view === null) {
-						context.$textarea.wikiEditor('openDialog', action.module);
-					}
+					context.$textarea.wikiEditor('openDialog', action.module);
 					break;
 				default: break;
 			}
