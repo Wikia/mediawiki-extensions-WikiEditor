@@ -326,7 +326,7 @@ toolbarConfig = {
 							}
 						},
 						squote: {
-							label: mw.msg( 'wikieditor-toolbar-tool-squote' ),
+							label: mw.msg( 'structured-content-structured-quote-title' ),
 							type: 'button',
 							oouiIcon: 'squote',
 							action: {
